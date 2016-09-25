@@ -1,0 +1,36 @@
+.player {
+  $playButtonWidth: 20px;
+  $playerProgressHeight: 8px;
+
+  &__playButton {
+    display: inline-block;
+    width: $playButtonWidth;
+    color: $orange;
+  }
+
+  &__time {
+    display: inline-block;
+    width: 100px;
+    margin-top: 10px;
+    color: $orange;
+    font-size: $h5;
+  }
+
+  &__progress {
+    display: inline-block;
+    height: $playerProgressHeight;
+    width: calc(100% - #{$playButtonWidth} - 1em);
+    background: $grey;
+  }
+
+  &__progressInner {
+    width: 30%;
+    height: $playerProgressHeight;
+    background: $orange;
+  }
+
+  &__progress,
+  &__progressInner {
+    border-radius: 5px;
+  }
+}

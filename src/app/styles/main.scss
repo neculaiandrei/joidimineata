@@ -1,0 +1,13 @@
+@import 'reset';
+@import 'globals';
+@import 'header';
+@import 'menu';
+@import 'slidingMenu';
+@import 'posts';
+@import 'player';
+@import 'socialIcons';
+@import 'sidebar';
+
+body {
+  background: $white;
+}

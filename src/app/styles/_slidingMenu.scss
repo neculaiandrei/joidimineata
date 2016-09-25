@@ -1,0 +1,56 @@
+.sliding-menu {
+  display: inline-block;
+
+  &__item {
+    margin: 5% 10%;
+    font-size: $h3;
+    text-align: left;
+    border-bottom: 1px solid lighten($grey, 20%);
+
+    &--active {
+      color: $orange;
+    }
+
+    .fa {
+      margin-right: 20px;
+    }
+  }
+
+  &__nav {
+    $navWidth: 50%;
+    $navHeight: 100%;
+
+    position: fixed;
+    top: 0;
+    right: -$navWidth;
+    height: $navHeight;
+    width: $navWidth;
+    max-width: 255px;
+    padding-top: 2%;
+    background: $white;
+    transition: right $animationDuration $animationType;
+  }
+
+  &__cover {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    height: 100%;
+    width: 100%;
+    background: $grey;
+    opacity: 0;
+    transition: opacity $animationDuration $animationType;
+  }
+
+  &--active {
+    .sliding-menu__toogle {
+      display: none;
+    }
+
+    .sliding-menu__nav {
+      right: 0;
+      box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.35);
+    }
+  }
+}

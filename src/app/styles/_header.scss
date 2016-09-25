@@ -1,0 +1,59 @@
+@import 'globals';
+
+.header {
+  $headerPaddingBottom: 10px;
+
+  position: fixed;
+  top: 0;
+  height: $desktopHeaderHeight;
+  width: calc(100% - (2 * #{$desktopHorizontalMargin}));
+  margin: 0 $desktopHorizontalMargin;
+  padding-bottom: $headerPaddingBottom;
+  color: $grey;
+  background: $white;
+  line-height: $desktopHeaderHeight;
+  transition: all $animationDuration $animationType;
+
+  &__brandname {
+    display: inline-block;
+    font-family: $headingFont;
+    font-size: $h1;
+    color: $orange;
+  }
+
+  &__meta {
+    position: absolute;
+    display: inline-block;
+    top: calc(#{$desktopHeaderHeight} - 10px);
+    left: 0;
+    font-size: 0.9em;
+    color: $grey;
+    line-height: $h5;
+  }
+
+  &__menu {
+    float: right;
+
+    > * {
+      display: inline-block;
+      line-height: inherit;
+      //fix vertical alignment for icons
+      vertical-align: 0;
+    }
+  }
+
+  @media only screen and (max-width: $mobileBreakpoint) {
+    height: $mobileHeaderHeight;
+    width: calc(100% - (2 * #{$mobileHorizontalMargin}));
+    margin: 0 $mobileHorizontalMargin;
+    //unexplained
+    padding-bottom: 20px;
+    line-height: $mobileHeaderHeight;
+
+    &__meta {
+      top: calc(#{$mobileHeaderHeight});
+    }
+  }
+  
+}
+

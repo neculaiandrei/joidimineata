@@ -22,7 +22,7 @@ class IconLink extends React.Component {
         }
 
         return (
-            <Link to={this.props.link}>
+            <Link to={this.props.link} activeClassName={this.props.activeClassName}>
                 {icon}
             </Link>
         );

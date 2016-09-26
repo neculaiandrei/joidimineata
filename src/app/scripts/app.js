@@ -1,6 +1,6 @@
 import React                                            from 'react';
 import ReactDOM                                         from 'react-dom';
-import { Router, Route, IndexRoute, browserHistory }    from 'react-router';
+import { Router, Route, IndexRedirect, browserHistory } from 'react-router';
 import Header                                           from './Header.js';
 import PodcastsPage                                     from './PodcastsPage.js';
 import WritingsPage                                     from './WritingsPage.js';
@@ -24,7 +24,7 @@ class App extends React.Component {
 const RouteHandler = () => (
     <Router history={browserHistory}>
         <Route path="/" component={App}>
-            <IndexRoute component={PodcastsPage}/>
+            <IndexRedirect to="/podcast" /> 
             <Route path="/podcast" component={PodcastsPage}/>
             <Route path="/ganduri" component={WritingsPage}/>
         </Route>

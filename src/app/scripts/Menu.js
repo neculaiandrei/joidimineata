@@ -6,12 +6,8 @@ class Menu extends React.Component {
         return (
             <div className="menu">
                 <ul className="menu__desktop">
-                    <li className="menu__item menu__item--active">
-                        <IconLink link="/podcast" className="fa fa-microphone" />
-                    </li>
-                    <li className="menu__item">
-                        <IconLink link="/ganduri" className="fa fa-pencil" />
-                    </li>
+                        <IconLink link="/podcast" className="menu__item fa fa-microphone" activeClassName="menu__item--active"/>
+                        <IconLink link="/ganduri" className="menu__item fa fa-pencil" activeClassName="menu__item--active"/>
                 </ul>
                 <div className="menu__mobile">
                     <div className="sliding-menu">

@@ -16,7 +16,7 @@ const config = {
     src: './src/app',
     dist: './dist',
     js: {
-        entry: 'app.js',
+        entry: 'main.js',
         folder: '/scripts/'
     },
     sass: {

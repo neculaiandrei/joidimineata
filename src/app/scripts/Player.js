@@ -1,4 +1,6 @@
-import React from 'react';
+import React                    from 'react';
+import { PlayButton, Progress } from 'react-soundplayer/components';
+import { SoundPlayerContainer } from 'react-soundplayer/addons';
 
 class Player extends React.Component {
     render() {

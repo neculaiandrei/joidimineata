@@ -4,14 +4,10 @@ import Menu     from './Menu.js';
 
 class Header extends React.Component {
     render() {
-        var bold = {
-            fontWeight: '600'
-        };
-
         return (
             <div className="header">
                 <div className="header__brandname">
-                    <Link to="/"><span style={bold}>Joi</span> Dimineata</Link>
+                    <Link to="/"><em>Joi</em> Dimineata</Link>
                 </div>
                 <div className="header__meta">Nu te ia nimeni in serios atunci cand vorbesti de boala ta.</div>
                 <div className="header__menu">

@@ -2,14 +2,16 @@ import React    from 'react';
 import Post     from './Post.js';
 import Player   from './Player.js';
 
-class PodcastPost extends React.Component {
+class PodcastSummary extends React.Component {
     render() {
         return (
-            <Post {...this.props}>
+            <Post date={this.props.date}
+                title={this.props.title}
+                link={this.props.link}>
                 <Player />
             </Post>
         );
     }
 }
 
-export default PodcastPost;
+export default PodcastSummary;

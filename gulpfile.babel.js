@@ -10,6 +10,7 @@ import sass         from 'gulp-sass';
 import connect      from 'gulp-connect';
 import runSequence  from 'run-sequence';
 import util         from 'gulp-util';
+import history      from 'connect-history-api-fallback';
 
 const config = {
     src: './src/app',
@@ -42,7 +43,10 @@ const bundle = () => {
         .pipe(buffer())
         .pipe(sourcemaps.init({ loadMaps: true }))
         .pipe(sourcemaps.write())
-        .pipe(gulp.dest(config.dist + config.js.folder));
+        .pipe(gulp.dest(config.dist + config.js.folder))
+        .on('end', () => {
+          util.log(util.colors.blue('Finished js'));
+        });
 };
 
 gulp.task('compile-js', bundle);
@@ -56,15 +60,16 @@ const compileSass = () => {
       .pipe(sourcemaps.init(true))
       .pipe(sass().on('error', sass.logError))
       .pipe(sourcemaps.write())
-      .pipe(gulp.dest(config.dist + config.sass.folder));
+      .pipe(gulp.dest(config.dist + config.sass.folder))
+      .on('end', () => {
+        util.log(util.colors.blue('Finished sass'));
+      });
 };
 
 gulp.task('compile-sass', compileSass);
 
 gulp.task('watch-sass', () => {
-   watch(config.src + config.sass.folder + config.sass.entry, () => {
-       compileSass();
-   });
+   watch(config.src + config.sass.folder + config.sass.entry, compileSass);
 });
 
 gulp.task('copy-3rdParty-styles', () => {
@@ -76,7 +81,10 @@ gulp.task('copy-3rdParty-styles', () => {
 
 const copyHtml = () => {
     return gulp.src(config.src + '/index.html')
-      .pipe(gulp.dest(config.dist));
+      .pipe(gulp.dest(config.dist))
+      .on('end', () => {
+        util.log(util.colors.blue('Finished html'));
+      });;
 };
 
 gulp.task('copy-html', copyHtml);
@@ -87,10 +95,13 @@ gulp.task('watch-html', () => {
   });
 });
 
-gulp.task('server', () => {
+gulp.task('server', () => { 
   return connect.server({
       root: config.dist,
-      port: config.port
+      port: config.port,
+      middleware: (connect, opt) => {
+          return [ history({}) ];
+      }
   });
 });
 
@@ -108,6 +119,9 @@ gulp.task('watch', [
     'watch-html'
 ]);
 
-gulp.task('default', (callback) => {
-    runSequence ('build', 'watch', callback);
+gulp.task('default', (done) => {
+    runSequence ('build', 'watch', () => {
+        done();
+        util.log(util.colors.blue('Finished'));
+    });
 });

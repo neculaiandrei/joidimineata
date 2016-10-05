@@ -1,0 +1,82 @@
+@import 'globals';
+
+.jd-table {  
+    table {
+      width: 100%;
+      table-layout: fixed;
+      text-align: left;
+    }
+
+    thead {
+        color: $orange;
+        font-family: $headingFont;
+        text-transform: uppercase; 
+    }
+
+    th, td {
+      padding: 20px 10px;
+    }
+
+    tbody { 
+      tr:hover {
+        background-color: $grey;
+      }
+
+      i {
+        &:hover {
+          color: $orange;
+        }
+      }
+    }
+}
+
+.search-input {
+  input {
+    margin: 10px 0;
+    border: none;
+    border-bottom: 1px solid $grey;
+    color: $grey;
+    font-size: $h3;
+    
+    &:focus {
+      outline: none;
+    }
+  }
+
+  i {
+    display: inline;
+    position: relative;
+    right: 1em;
+    color: $grey;
+  }
+
+  &--active {
+
+    input {
+      border-bottom-color: $orange;
+      color: $orange;
+
+      &::-webkit-input-placeholder {
+        color: $orange;
+      }
+
+      &:-moz-placeholder {
+        color: $orange;
+        opacity:  1;
+      }
+
+      &::-moz-placeholder {
+        color: $orange;
+        opacity:  1;
+      }
+
+      &:-ms-input-placeholder {
+        color: $orange;
+      }
+    }
+
+    i {
+      display: none;
+    }
+  }
+}

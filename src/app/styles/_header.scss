@@ -7,7 +7,6 @@
   top: 0;
   height: $desktopHeaderHeight;
   width: calc(100% - (2 * #{$desktopHorizontalMargin}));
-  margin: 0 $desktopHorizontalMargin;
   padding-bottom: $headerPaddingBottom;
   color: $grey;
   background: $white;
@@ -45,7 +44,6 @@
   @media only screen and (max-width: $mobileBreakpoint) {
     height: $mobileHeaderHeight;
     width: calc(100% - (2 * #{$mobileHorizontalMargin}));
-    margin: 0 $mobileHorizontalMargin;
     //unexplained
     padding-bottom: 20px;
     line-height: $mobileHeaderHeight;
